@@ -1,5 +1,105 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$controle-series-blue:(
+
+  50:#E3F2FD,
+  100:#BBDEFB,
+  200:#90CAF9,
+  300:#64B5F6,
+  400:#42A5F5,
+  500:#2196F3,
+  600:#1E88E5,
+  700:#1976D2,
+  800:#1565C0,
+  900:#0D47A1,
+  A100:#82B1FF,
+  A200:#448AFF,
+  A400:#2979FF,
+  A700:#2962FF,
+contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$controle-series-lightblue:(
+
+  50:#E1F5FE,
+  100:#B3E5FC,
+  200:#81D4FA,
+  300:#4FC3F7,
+  400:#29B6F6,
+  500:#03A9F4,
+  600:#039BE5,
+  700:#0288D1,
+  800:#0277BD,
+  900:#01579B,
+  A100:#80D8FF,
+  A200:#40C4FF,
+  A400:#00B0FF,
+  A700:#0091EA,
+contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$controle-serie-primary: mat.define-palette($controle-series-blue);
+$controle-serie-accent: mat.define-palette($controle-series-lightblue);
+
+// The warn palette is optional (defaults to red).
+$controle-seire-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$grego-menu-cardapio-theme: mat.define-light-theme((
+  color: (
+    primary: $controle-serie-primary,
+    accent: $controle-serie-accent,
+    warn: $controle-seire-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($grego-menu-cardapio-theme);
+
 /* You can add global styles to this file, and also import other style files */
-
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
